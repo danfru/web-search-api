@@ -2,11 +2,12 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-# ✅ ADD THIS HOMEPAGE ROUTE TO FIX "Cannot GET /"
+# ✅ Homepage Route (Fixes "Not Found" for "/")
 @app.route("/")
 def home():
     return jsonify({"message": "Flask API is running!"})
 
+# ✅ Search Route (Fixes "Not Found" for "/search")
 @app.route("/search", methods=["GET"])
 def search():
     query = request.args.get("query")
